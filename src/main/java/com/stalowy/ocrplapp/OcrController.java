@@ -25,16 +25,13 @@ public class OcrController {
         return "index";
     }
 
-    @PostMapping("/urlOCR")
-    public String urlOcr(@RequestAttribute UrlResult urlResult, Model model){
-        System.out.println(urlResult.getUrl());
-        System.out.println(urlResult.getResult());
-//        if(urlResult.getUrl()!=null) {
-//            urlResult.setResult(ocrUrlService.ocrFromLink(urlResult.getUrl()));
-//            model.addAttribute("urlResult", urlResult);
-//        }else System.out.println("brak url");
-
-        return "index";
+    @RequestMapping(value = "/urlOCR", method = RequestMethod.POST)
+    public String urlOcr(@ModelAttribute UrlResult urlResult, Model model){
+        if(urlResult.getUrl()!=null) {
+            urlResult.setResult(ocrUrlService.ocrFromLink(urlResult.getUrl()));
+            model.addAttribute("urlResult", urlResult);
+        }else System.out.println("brak url");
+        return "ocrResult";
     }
 
 

@@ -4,6 +4,7 @@ import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import net.sourceforge.tess4j.util.LoadLibs;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
@@ -15,7 +16,9 @@ import java.net.URL;
 
 @Service
 public class OcrUrlService {
-    private String datapath = "C:/Repository/ocr-spring-thymelaef/tessdata";
+
+    @Value("datapath")
+    private String datapath;
 
     public String ocrFromLink(String imageUrl){
         URL url = null;

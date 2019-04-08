@@ -22,7 +22,7 @@
 <div class="container">
     <form name="#" th:object="${urlResult}" th:action="@{/urlOCR}" method="post">
     <div class="input-group mb-3">
-        <input type="text" name="urlResult" th:field="*{url}" class="form-control" placeholder="Podaj link..." >
+        <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link..." >
         <div class="input-group-append">
             <button class="btn btn-primary" type="submit">Wyślij</button>
         </div>
