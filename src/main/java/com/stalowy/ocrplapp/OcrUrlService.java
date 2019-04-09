@@ -17,7 +17,7 @@ import java.net.URL;
 @Service
 public class OcrUrlService {
 
-    @Value("datapath")
+    @Value("${datapath}")
     private String datapath;
 
     public String ocrFromLink(String imageUrl){
