@@ -5,6 +5,7 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -19,7 +20,7 @@ public class OcrFileService {
     @Value("${datapath}")
     private String datapath;
 
-    public String ocrFromFile(File img){
+    public String ocrFromFile(MultipartFile file){
             String result = null;
 
             ITesseract instance = new Tesseract();
@@ -27,10 +28,20 @@ public class OcrFileService {
             instance.setLanguage("pol");
 
             try {
-                return instance.doOCR(img);
+                File tmpFile = multipartToFile(file);
+                return instance.doOCR(tmpFile);
             } catch (TesseractException e) {
                 System.err.println(e.getMessage());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            return "blank";
+        return "blank";
         }
+
+    public File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException
+    {
+        File convFile = new File( multipart.getOriginalFilename());
+        multipart.transferTo(convFile);
+        return convFile;
+    }
 }
