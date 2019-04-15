@@ -1,4 +1,4 @@
-package com.stalowy.ocrplapp;
+package com.stalowy.ocrplapp.Service;
 
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;

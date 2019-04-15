@@ -1,4 +1,4 @@
-package com.stalowy.ocrplapp;
+package com.stalowy.ocrplapp.Model;
 
 
 public class UrlResult {

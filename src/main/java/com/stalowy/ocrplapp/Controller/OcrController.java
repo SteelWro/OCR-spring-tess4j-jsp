@@ -1,10 +1,13 @@
-package com.stalowy.ocrplapp;
+package com.stalowy.ocrplapp.Controller;
 
+import com.stalowy.ocrplapp.Model.FileResult;
+import com.stalowy.ocrplapp.Model.UrlResult;
+import com.stalowy.ocrplapp.Service.OcrFileService;
+import com.stalowy.ocrplapp.Service.OcrUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class OcrController {

@@ -1,4 +1,4 @@
-package com.stalowy.ocrplapp;
+package com.stalowy.ocrplapp.Model;
 
 import org.springframework.web.multipart.MultipartFile;
 
