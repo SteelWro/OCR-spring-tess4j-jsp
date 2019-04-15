@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,6 +22,7 @@ public class OcrFileService {
     private String datapath;
 
     public String ocrFromFile(MultipartFile file){
+        if(file==null) throw new IllegalArgumentException();
             String result = null;
 
             ITesseract instance = new Tesseract();
@@ -28,8 +30,7 @@ public class OcrFileService {
             instance.setLanguage("pol");
 
             try {
-                File tmpFile = multipartToFile(file);
-                return instance.doOCR(tmpFile);
+                return instance.doOCR(multipartToFile(file));
             } catch (TesseractException e) {
                 System.err.println(e.getMessage());
             } catch (IOException e) {
@@ -38,10 +39,13 @@ public class OcrFileService {
         return "blank";
         }
 
-    public File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException
+    public static File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException
     {
-        File convFile = new File( multipart.getOriginalFilename());
-        multipart.transferTo(convFile);
+        File convFile = new File(multipart.getOriginalFilename());
+        convFile.createNewFile();
+        FileOutputStream fos = new FileOutputStream(convFile);
+        fos.write(multipart.getBytes());
+        fos.close();
         return convFile;
     }
 }

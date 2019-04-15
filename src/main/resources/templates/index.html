@@ -28,9 +28,32 @@
     <div class="input-group mb-3">
         <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link..." >
         <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Wyślij</button>
+            <button class="btn btn-primary" type="submit">Załaduj link</button>
         </div>
     </div>
+    </form>
+    <div>
+        <p>lub</p>
+    </div>
+    <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
+        <!--<div class="input-group">-->
+            <!--<div class="custom-file">-->
+                <!--<input type="file" multiple="multiple" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">-->
+                <!--<label class="custom-file-label" for="inputGroupFile04">Choose file</label>-->
+            <!--</div>-->
+            <!--<div class="input-group-append">-->
+                <!--<button class="btn btn-outline-secondary" type="submit" value="upload" id="inputGroupFileAddon04">Załaduj plik</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <label for="file">Select a file to upload</label>
+        <input type="file" th:field="*{multipartFile}" name="file" id="file"/>
+        <input type="submit" value="Upload" />
+
+        <!--<form action="uploadSuccess.html" th:action="@{/fileupload}" method="post" enctype="multipart/form-data">-->
+
+        <!--</form>-->
     </form>
     <!--
         <p class="text-center">lub</p>

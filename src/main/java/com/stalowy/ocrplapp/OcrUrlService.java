@@ -28,9 +28,9 @@ public class OcrUrlService {
             url = new URL(imageUrl);
             img = ImageIO.read(url);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            System.out.println("błąd z linkiem");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Obrazek z linku nie został odczytany");
         }
 
         ITesseract instance = new Tesseract();

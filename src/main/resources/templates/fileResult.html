@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="C:/Repository/ocr-spring-thymelaef/src/main/resources/asset"/>
+
+    <title>OCR</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #buttonCopy {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .jumbotron.text-center.shadow.p-3.mb-5.bg-white.rounded{
+            background-color: #EAF0CE !important;
+        }
+    </style>
+</head>
+<body>
+<div class="jumbotron text-center shadow p-3 mb-5 bg-white rounded">
+    <h1>OCR rozpoznawanie tekstu na obrazie</h1>
+    <p>Konwertuj pliki PDF, JPG, JPEG ,TIFF, PNG, BMP lub z linku URL</p>
+</div>
+<div class="container">
+    <div class="panel panel-success shadow p-3 mb-5 bg-white rounded">
+        <div class="panel-heading text-center position-relative"><button type="button" onclick="copyToClipboard('#panelCopy')" id="buttonCopy" class="btn btn-dark">Kopiuj</button></div>
+        <div class="panel-body text-center" id="panelCopy"> <p th:text="${fileResult.result}"></p> </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+</script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>
