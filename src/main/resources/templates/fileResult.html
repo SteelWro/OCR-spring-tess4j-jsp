@@ -13,14 +13,12 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
     <style>
         #buttonCopy {
             position: absolute;
             top: 0;
             right: 0;
-        }
-        .jumbotron.text-center.shadow.p-3.mb-5.bg-white.rounded{
-            background-color: #EAF0CE !important;
         }
     </style>
 </head>
@@ -29,11 +27,21 @@
     <h1>OCR rozpoznawanie tekstu na obrazie</h1>
     <p>Konwertuj pliki PDF, JPG, JPEG ,TIFF, PNG, BMP lub z linku URL</p>
 </div>
-<div class="container">
-    <div class="panel panel-success shadow p-3 mb-5 bg-white rounded">
-        <div class="panel-heading text-center position-relative"><button type="button" onclick="copyToClipboard('#panelCopy')" id="buttonCopy" class="btn btn-dark">Kopiuj</button></div>
-        <div class="panel-body text-center" id="panelCopy"> <p th:text="${fileResult.result}"></p> </div>
+<!--<div class="container">-->
+    <!--<div class="panel panel-success shadow p-3 mb-5 bg-white rounded">-->
+        <!--<div class="panel-heading text-center position-relative"><button type="button" onclick="copyToClipboard('#panelCopy')" id="buttonCopy" class="btn btn-dark">Kopiuj</button></div>-->
+        <!--<div class="panel-body text-center" id="panelCopy"> <p th:text="${fileResult.result}"></p> </div>-->
 
+    <!--</div>-->
+<!--</div>-->
+<div class="container">
+    <div class="panel panel-success shadow p-3 mb-5 bg-white rounded position-relative ">
+        <button type="button" onclick="copyToClipboard('.panelCopy')" id="buttonCopy" class="btn btn-dark" style="margin: 10px">Kopiuj</button>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Wynik</label>
+            <textarea class="form-control rounded-0 panelCopy" id="exampleFormControlTextarea1" rows="10" th:text="${fileResult.getResult()}" style="margin-right: 40px">
+                    </textarea>
+        </div>
     </div>
 </div>
 

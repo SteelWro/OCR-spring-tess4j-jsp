@@ -2,7 +2,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -12,11 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-    .jumbotron.text-center.shadow.p-3.mb-5.bg-white.rounded{
-        background-color: #EAF0CE !important;
-    }
-</style>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <div class="jumbotron text-center shadow p-3 mb-5 bg-white rounded">
@@ -25,49 +20,34 @@
 </div>
 <div class="container">
     <form name="#" th:object="${urlResult}" th:action="@{/urlOCR}" method="post">
-    <div class="input-group mb-3">
-        <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link..." >
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Załaduj link</button>
-        </div>
-    </div>
-    </form>
-    <div>
-        <p>lub</p>
-    </div>
-    <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
-        <!--<div class="input-group">-->
-            <!--<div class="custom-file">-->
-                <!--<input type="file" multiple="multiple" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">-->
-                <!--<label class="custom-file-label" for="inputGroupFile04">Choose file</label>-->
-            <!--</div>-->
-            <!--<div class="input-group-append">-->
-                <!--<button class="btn btn-outline-secondary" type="submit" value="upload" id="inputGroupFileAddon04">Załaduj plik</button>-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-        <label for="file">Select a file to upload</label>
-        <input type="file" th:field="*{multipartFile}" name="file" id="file"/>
-        <input type="submit" value="Upload" />
-
-        <!--<form action="uploadSuccess.html" th:action="@{/fileupload}" method="post" enctype="multipart/form-data">-->
-
-        <!--</form>-->
-    </form>
-    <!--
-        <p class="text-center">lub</p>
-
-        <form name="#" th:action="@{/fileOCR}" method="post">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Something clever..">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Wyślij</button>
-                </div>
+        <div class="input-group mb-3">
+            <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link..." >
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">Załaduj link</button>
             </div>
-        </form>
-        -->
+        </div>
+    </form>
+<div>
+    <p class="d-flex justify-content-center">lub</p>
 </div>
+    <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-secondary" id="inputGroupFileAddon01" type="submit">Załaduj plik</button>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" multiple="multiple" id="inputGroupFile01" th:field="*{multipartFile}" aria-describedby="inputGroupFileAddon01" >
+                <label class="custom-file-label" for="inputGroupFile01">Wybierz plik</label>
+            </div>
+        </div>
+    </form>
+</div>
+<footer class="footer">
+    <div class="container">
+        <span class="d-flex justify-content-center">2019 - Artur Cwiklinski</span>
+    </div>
+</footer>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
