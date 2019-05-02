@@ -7,7 +7,10 @@ import com.stalowy.ocrplapp.Service.OcrUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class OcrController {
@@ -19,7 +22,7 @@ public class OcrController {
     OcrFileService ocrFileService;
 
     @RequestMapping("/")
-    public String homeSite(Model model){
+    public String homeSite(Model model) {
         UrlResult urlResult = new UrlResult();
         FileResult fileResult = new FileResult();
         model.addAttribute("urlResult", urlResult);
@@ -28,30 +31,21 @@ public class OcrController {
     }
 
     @PostMapping("/urlOCR")
-    public String urlOcr(@ModelAttribute UrlResult urlResult, Model model){
-        if(urlResult.getUrl()!=null) {
-            urlResult.setResult(ocrUrlService.ocrFromLink(urlResult.getUrl()));
+    public String urlOcr(@ModelAttribute UrlResult urlResult, Model model) {
+        if (urlResult.getUrl() != null) {
+            String result = ocrUrlService.ocrFromLink(urlResult.getUrl());
+            urlResult.setResult(result);
             model.addAttribute("urlResult", urlResult);
-        }else System.out.println("brak url");
+        } else System.out.println("brak url");
         return "urlResult";
     }
 
     @PostMapping("/fileOCR")
     public String handleFileUpload(@ModelAttribute FileResult fileResult, Model model) {
-        fileResult.setResult(ocrFileService.ocrFromFile(fileResult.getMultipartFile()));
-
+        MultipartFile multipartFile = fileResult.getMultipartFile();
+        String result = ocrFileService.ocrFromFile(multipartFile);
+        fileResult.setResult(result);
         model.addAttribute("fileResult", fileResult);
         return "fileResult";
     }
-
-
-
-
-//    @GetMapping("/test")
-//    public String doSomething(Model model){
-//        model.addAttribute("datetime", new Date());
-//        model.addAttribute("username", "Ömerrrr");
-//
-//        return "test";s
-//    }
 }

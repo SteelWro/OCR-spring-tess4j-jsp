@@ -18,30 +18,27 @@ import java.net.URL;
 @Service
 public class OcrFileService {
 
-//    @Value("${datapath}")
-//    private String datapath;
-      String Path = new File("").getAbsolutePath();
+    String Path = new File("").getAbsolutePath();
 
-    public String ocrFromFile(MultipartFile file){
-        if(file==null) throw new IllegalArgumentException();
-            String result = null;
+    public String ocrFromFile(MultipartFile file) {
+        if (file == null) throw new IllegalArgumentException();
+        String result = null;
 
-            ITesseract instance = new Tesseract();
-            instance.setDatapath(Path+"/tessdata");
-            instance.setLanguage("pol");
+        ITesseract instance = new Tesseract();
+        instance.setDatapath(Path + "/tessdata");
+        instance.setLanguage("pol");
 
-            try {
-                return instance.doOCR(multipartToFile(file));
-            } catch (TesseractException e) {
-                System.err.println(e.getMessage());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        return "blank";
+        try {
+            return instance.doOCR(multipartToFile(file));
+        } catch (TesseractException e) {
+            System.err.println(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return "blank";
+    }
 
-    public static File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException
-    {
+    public static File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException {
         File convFile = new File(multipart.getOriginalFilename());
         convFile.createNewFile();
         FileOutputStream fos = new FileOutputStream(convFile);

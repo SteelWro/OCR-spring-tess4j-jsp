@@ -17,11 +17,9 @@ import java.net.URL;
 @Service
 public class OcrUrlService {
 
-//    @Value("${datapath}")
-//    private String datapath;
     String Path = new File("").getAbsolutePath();
 
-    public String ocrFromLink(String imageUrl){
+    public String ocrFromLink(String imageUrl) {
         URL url = null;
         BufferedImage img = null;
         String result = null;
@@ -35,7 +33,7 @@ public class OcrUrlService {
         }
 
         ITesseract instance = new Tesseract();
-        instance.setDatapath(Path+"/tessdata");
+        instance.setDatapath(Path + "/tessdata");
         instance.setLanguage("pol");
 
         try {

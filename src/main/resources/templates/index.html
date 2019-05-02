@@ -10,7 +10,8 @@
     <title>OCR</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
@@ -21,23 +22,47 @@
 <div class="container">
     <form name="#" th:object="${urlResult}" th:action="@{/urlOCR}" method="post">
         <div class="input-group mb-3">
-            <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link..." >
+            <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link...">
             <div class="input-group-append">
                 <button class="btn btn-secondary" type="submit">Załaduj link</button>
             </div>
         </div>
     </form>
-<div>
-    <p class="d-flex justify-content-center">lub</p>
-</div>
+    <div>
+        <p class="d-flex justify-content-center">lub</p>
+    </div>
+    <!--    <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">-->
+    <!--        <div class="input-group mb-3">-->
+    <!--            <div class="input-group-prepend">-->
+    <!--                <button class="btn btn-secondary" id="inputGroupFileAddon01" type="submit">Załaduj plik</button>-->
+    <!--            </div>-->
+    <!--            <div class="custom-file">-->
+    <!--                <input type="file" class="custom-file-input"  id="inputGroupFile01" th:field="*{multipartFile}" aria-describedby="inputGroupFileAddon01" >-->
+    <!--                <label class="custom-file-label" for="inputGroupFile01">Wybierz plik</label>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </form>-->
+    <!--    <form method="POST" action="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}">-->
+
+    <!--        <div class="form-group">-->
+    <!--            <div class="input-group input-file" name="Fichier1" th:field="*{multipartFile}">-->
+    <!--                <input type="text" class="form-control" placeholder='Choose a file...' />-->
+    <!--                <span class="input-group-btn">-->
+    <!--        		<button class="btn btn-default btn-choose" type="button">Choose</button>-->
+    <!--    		</span>-->
+
+
+    <!--            </div>-->
+    <!--            -->
+    <!--        </div>-->
     <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <button class="btn btn-secondary" id="inputGroupFileAddon01" type="submit">Załaduj plik</button>
-            </div>
+        <div class="input-group">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" multiple="multiple" id="inputGroupFile01" th:field="*{multipartFile}" aria-describedby="inputGroupFileAddon01" >
-                <label class="custom-file-label" for="inputGroupFile01">Wybierz plik</label>
+                <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04">
+                <label class="custom-file-label" for="inputGroupFile04">Wybierz plik...</label>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Prześlij</button>
             </div>
         </div>
     </form>
@@ -51,9 +76,23 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="application/javascript">
+    $('input[type="file"]').change(function (e) {
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+    });
+</script>
+
+
 </body>
 </html>
