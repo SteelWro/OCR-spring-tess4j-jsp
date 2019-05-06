@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="C:/Repository/ocr-spring-thymelaef/src/main/resources/asset"/>
+    <link rel="icon" th:href="@{/img/icon.png}"/>
 
     <title>OCR</title>
 
@@ -31,30 +31,6 @@
     <div>
         <p class="d-flex justify-content-center">lub</p>
     </div>
-    <!--    <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">-->
-    <!--        <div class="input-group mb-3">-->
-    <!--            <div class="input-group-prepend">-->
-    <!--                <button class="btn btn-secondary" id="inputGroupFileAddon01" type="submit">Załaduj plik</button>-->
-    <!--            </div>-->
-    <!--            <div class="custom-file">-->
-    <!--                <input type="file" class="custom-file-input"  id="inputGroupFile01" th:field="*{multipartFile}" aria-describedby="inputGroupFileAddon01" >-->
-    <!--                <label class="custom-file-label" for="inputGroupFile01">Wybierz plik</label>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </form>-->
-    <!--    <form method="POST" action="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}">-->
-
-    <!--        <div class="form-group">-->
-    <!--            <div class="input-group input-file" name="Fichier1" th:field="*{multipartFile}">-->
-    <!--                <input type="text" class="form-control" placeholder='Choose a file...' />-->
-    <!--                <span class="input-group-btn">-->
-    <!--        		<button class="btn btn-default btn-choose" type="button">Choose</button>-->
-    <!--    		</span>-->
-
-
-    <!--            </div>-->
-    <!--            -->
-    <!--        </div>-->
     <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
         <div class="input-group">
             <div class="custom-file">
@@ -73,9 +49,7 @@
     </div>
 </footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
