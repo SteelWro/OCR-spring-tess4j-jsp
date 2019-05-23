@@ -15,4 +15,19 @@ body{
     background-color: #96858F;
 }
 
+a {
+    color: dimgray;
+    display: inline-block;
+    transition: .6s;
+    font-weight:lighter;
+    text-decoration:none;
+}
+a:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    text-decoration:none;
+    color: dimgray;
+    font-weight:lighter;
+}
+
 

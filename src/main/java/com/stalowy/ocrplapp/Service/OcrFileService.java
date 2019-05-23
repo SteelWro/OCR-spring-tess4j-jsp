@@ -35,7 +35,7 @@ public class OcrFileService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "blank";
+        return "Something wrong";
     }
 
     public static File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException {

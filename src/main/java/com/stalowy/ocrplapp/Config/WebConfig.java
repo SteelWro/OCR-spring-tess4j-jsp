@@ -22,4 +22,5 @@ public class WebConfig implements WebMvcConfigurer {
                         "classpath:/static/css/");
     }
 
+
 }
