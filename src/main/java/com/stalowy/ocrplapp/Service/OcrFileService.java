@@ -18,14 +18,14 @@ import java.net.URL;
 @Service
 public class OcrFileService {
 
-    String Path = new File("").getAbsolutePath();
+    String windowsPath = new File("").getAbsolutePath();
 
     public String ocrFromFile(MultipartFile file) {
         if (file == null) throw new IllegalArgumentException();
         String result = null;
 
         ITesseract instance = new Tesseract();
-        instance.setDatapath(Path + "/tessdata");
+        instance.setDatapath(windowsPath + "/tessdata");
         instance.setLanguage("pol");
 
         try {

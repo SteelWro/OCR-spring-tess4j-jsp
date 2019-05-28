@@ -11,6 +11,10 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
@@ -23,7 +27,7 @@
         <div class="input-group mb-3">
             <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link...">
             <div class="input-group-append">
-                <button class="btn btn-secondary" type="submit">Załaduj link</button>
+                <button class="btn btn-secondary loader-btn" type="submit">Załaduj link</button>
             </div>
         </div>
     </form>
@@ -37,7 +41,7 @@
                 <label class="custom-file-label" for="inputGroupFile04">Wybierz plik...</label>
             </div>
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">Prześlij</button>
+                <button class="btn btn-outline-secondary loader-btn" type="submit" >Prześlij</button>
             </div>
         </div>
     </form>
@@ -47,7 +51,6 @@
         <span class="d-flex justify-content-center">2019 - Artur Cwiklinski</span>
     </div>
 </footer>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -64,6 +67,17 @@
         var fileName = e.target.files[0].name;
         $('.custom-file-label').html(fileName);
     });
+
+    $(document).ready(function() {
+        $('.loader-btn').on('click', function() {
+            var $this = $(this);
+            var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Przesyłanie';
+            if ($(this).html() !== loadingText) {
+                $this.data('original-text', $(this).html());
+                $this.html(loadingText);
+            }
+        });
+    })
 </script>
 
 
