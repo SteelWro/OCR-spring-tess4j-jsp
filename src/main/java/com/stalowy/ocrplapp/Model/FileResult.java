@@ -2,10 +2,12 @@ package com.stalowy.ocrplapp.Model;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
+import javax.validation.constraints.*;
 
 public class FileResult {
+
     private MultipartFile multipartFile;
+
     private String result;
 
     public MultipartFile getMultipartFile() {

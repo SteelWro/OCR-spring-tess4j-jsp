@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="jumbotron text-center shadow p-3 mb-5 bg-white rounded">
-    <h1><a href="localhost:8080" class="title">OCR rozpoznawanie tekstu na obrazie</a></h1>
+    <h1><a href="/" class="title">OCR rozpoznawanie tekstu na obrazie</a></h1>
     <p>Konwertuj pliki PDF, JPG, JPEG ,TIFF, PNG, BMP lub pliku z linku URL</p>
 </div>
 <div class="container">
@@ -27,9 +27,11 @@
         <div class="input-group mb-3">
             <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link...">
             <div class="input-group-append">
-                <button class="btn btn-secondary loader-btn" type="submit">Załaduj link</button>
+                <button class="btn btn-secondary loader-btn" type="submit"0>Załaduj link</button>
             </div>
         </div>
+        <p th:if="${#fields.hasErrors('url')}" th:errors="*{url}"/>
+
     </form>
     <div>
         <p class="d-flex justify-content-center">lub</p>
@@ -37,12 +39,14 @@
     <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
         <div class="input-group">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04">
-                <label class="custom-file-label" for="inputGroupFile04">Wybierz plik...</label>
+                <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" lang="pl-PL">
+                <label class="custom-file-label" for="inputGroupFile04" data-browse="Przeglądaj" >Wybierz plik...</label>
             </div>
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary loader-btn" type="submit" >Prześlij</button>
             </div>
+
+
         </div>
     </form>
 </div>
@@ -78,6 +82,13 @@
             }
         });
     })
+    // function validatorFile() {
+    //     if( document.getElementById("inputGroupFile04").files.length == 0 ){
+    //         alert("no files selected");
+    //     }
+    // }
+
+
 </script>
 
 
