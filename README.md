@@ -5,6 +5,7 @@
 > http://bykowski.pl
 >
 >
+
  Wykorzystane technologie:
 - Java
 - Spring
@@ -16,5 +17,5 @@
 
 Do zrobienia:
 - obsługa błędu w przypadku braku podania pliku.
-
+- wypchnięcie aplikacji na zewnętrzny serwer.
 
