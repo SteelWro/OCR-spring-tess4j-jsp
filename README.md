@@ -17,5 +17,6 @@
 
 Do zrobienia:
 - obsługa błędu w przypadku braku podania pliku.
+- stworzenie paczki wynikowej .war
 - wypchnięcie aplikacji na zewnętrzny serwer.
 
