@@ -8,7 +8,7 @@
 Wykorzystane technologie:
 - Java
 - Spring
-- biblioteka Tess4j https://github.com/nguyenq/tess4j
+- biblioteka[Tess4j](https://github.com/nguyenq/tess4j)
 - thymeleaf
 - JavaScript
 - Bootstrap
