@@ -30,6 +30,11 @@ a:hover {
     font-weight:lighter;
 }
 
+.alert-danger{
+    padding: 7px;
+    width: 30vh;
+}
+
 
 
 

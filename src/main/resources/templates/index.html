@@ -30,7 +30,7 @@
                 <button class="btn btn-secondary loader-btn" type="submit"0>Załaduj link</button>
             </div>
         </div>
-        <p th:if="${#fields.hasErrors('url')}" th:errors="*{url}"/>
+        <p class="alert alert-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"/>
 
     </form>
     <div>
