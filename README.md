@@ -3,7 +3,7 @@ Moja własna w pełni funkcjonalna aplikacja webowa OCR rozpoznająca tekst na o
 Zainspirowana repozytorium Przemka Bykowskiego https://github.com/bykowski/orc-system
 http://bykowski.pl
 
-
+```
 Wykorzystane technologie:
 -Java
 -Spring
@@ -11,3 +11,4 @@ Wykorzystane technologie:
 -thymeleaf
 -JavaScript
 -Bootstrap
+```
