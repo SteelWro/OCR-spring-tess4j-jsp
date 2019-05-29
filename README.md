@@ -5,7 +5,7 @@
 > http://bykowski.pl
 >
 >
-> Wykorzystane technologie:
+ Wykorzystane technologie:
 - Java
 - Spring
 - biblioteka [Tess4j](https://github.com/nguyenq/tess4j)
