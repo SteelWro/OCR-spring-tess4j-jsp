@@ -13,4 +13,8 @@
 - JavaScript
 - Bootstrap
 
+```
+Do zrobienia:
+obsługa błędu w przypadku braku podania pliku.
+
 
