@@ -1,7 +1,7 @@
-Moja własna w pełni funkcjonalna aplikacja webowa OCR rozpoznająca tekst na obrazie.
+> Moja własna w pełni funkcjonalna aplikacja webowa OCR rozpoznająca tekst na obrazie.
 
-Zainspirowana repozytorium Przemka Bykowskiego https://github.com/bykowski/orc-system
-http://bykowski.pl
+> Zainspirowana repozytorium Przemka Bykowskiego https://github.com/bykowski/orc-system
+> http://bykowski.pl
 
 ```
 Wykorzystane technologie:
