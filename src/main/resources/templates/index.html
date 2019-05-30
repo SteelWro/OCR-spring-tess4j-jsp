@@ -75,7 +75,7 @@
     $(document).ready(function() {
         $('.loader-btn').on('click', function() {
             var $this = $(this);
-            var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Przesyłanie';
+            var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Konwertowanie';
             if ($(this).html() !== loadingText) {
                 $this.data('original-text', $(this).html());
                 $this.html(loadingText);

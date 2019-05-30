@@ -12,6 +12,10 @@ public class FileResult {
         return multipartFile;
     }
 
+    public void setMultipartFile(MultipartFile multipartFile) {
+        this.multipartFile = multipartFile;
+    }
+
     public String getResult() {
         return result;
     }

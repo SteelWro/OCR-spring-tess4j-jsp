@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 public class UrlResult {
 
-    private final String ERROR = "Coś nie tak z tym linkiem";
+    private final String ERROR = "Link jest niepoprawny";
 
     @NotNull
     @Size(min=5, max=400, message = ERROR) //
@@ -16,6 +16,10 @@ public class UrlResult {
 
     public String getUrl() {
         return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getResult() {
