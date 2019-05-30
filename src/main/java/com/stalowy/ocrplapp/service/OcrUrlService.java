@@ -1,15 +1,12 @@
-package com.stalowy.ocrplapp.Service;
+package com.stalowy.ocrplapp.service;
 
 import net.sourceforge.tess4j.ITesseract;
-import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
-import net.sourceforge.tess4j.util.LoadLibs;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,12 +14,14 @@ import java.net.URL;
 @Service
 public class OcrUrlService {
 
-    String windowsPath = new File("").getAbsolutePath();
+    @Autowired
+    ITesseract iTesseract;
 
     public String ocrFromLink(String imageUrl) {
         URL url = null;
         BufferedImage img = null;
         String result = null;
+
         try {
             url = new URL(imageUrl);
             img = ImageIO.read(url);
@@ -32,16 +31,12 @@ public class OcrUrlService {
             System.out.println("Obrazek z linku nie został odczytany");
         }
 
-        ITesseract instance = new Tesseract();
-        instance.setDatapath(windowsPath + "/tessdata");
-        instance.setLanguage("pol");
-
         try {
-            return instance.doOCR(img);
+            result = iTesseract.doOCR(img);
         } catch (TesseractException e) {
             System.err.println(e.getMessage());
         }
-        return "blank";
+        return result;
     }
 
 }

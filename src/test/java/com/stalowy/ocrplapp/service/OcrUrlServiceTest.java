@@ -1,4 +1,4 @@
-package com.stalowy.ocrplapp.Service;
+package com.stalowy.ocrplapp.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +12,13 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class OcrUrlServiceTest {
 
-    @Autowired
+
     OcrUrlService ocrUrlService;
+
+    @Autowired
+    public OcrUrlServiceTest(OcrUrlService ocrUrlService) {
+        this.ocrUrlService = ocrUrlService;
+    }
 
     @Test
     public void test(){

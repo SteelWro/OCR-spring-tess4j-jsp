@@ -1,8 +1,6 @@
-package com.stalowy.ocrplapp.Model;
+package com.stalowy.ocrplapp.model;
 
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.constraints.*;
 
 public class FileResult {
 
@@ -12,10 +10,6 @@ public class FileResult {
 
     public MultipartFile getMultipartFile() {
         return multipartFile;
-    }
-
-    public void setMultipartFile(MultipartFile multipartFile) {
-        this.multipartFile = multipartFile;
     }
 
     public String getResult() {

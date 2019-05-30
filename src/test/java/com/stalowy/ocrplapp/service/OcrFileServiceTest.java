@@ -1,27 +1,19 @@
-package com.stalowy.ocrplapp.Service;
+package com.stalowy.ocrplapp.service;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,9 +25,12 @@ public class OcrFileServiceTest {
     BufferedImage img;
     ByteArrayOutputStream baos;
     MultipartFile multipartFile;
+    OcrFileService ocrFileService;
 
     @Autowired
-    OcrFileService ocrFileService;
+    public OcrFileServiceTest(OcrFileService ocrFileService) {
+        this.ocrFileService = ocrFileService;
+    }
 
     @Before
     public void setUp(){
@@ -44,7 +39,7 @@ public class OcrFileServiceTest {
             img = ImageIO.read(url);
             baos = new ByteArrayOutputStream();
             ImageIO.write( img, "jpg", baos );
-            multipartFile = new MultipartImage(baos.toByteArray(),"image.jpg", "original.jpg",  MediaType.MULTIPART_FORM_DATA.toString(), baos.size());
+            multipartFile = new MultipartImage(baos.toByteArray(),"/src/main/resources/test_files/testing_image.jpg", "original.jpg",  MediaType.MULTIPART_FORM_DATA.toString(), baos.size());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

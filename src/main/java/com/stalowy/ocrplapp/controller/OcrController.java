@@ -1,9 +1,9 @@
-package com.stalowy.ocrplapp.Controller;
+package com.stalowy.ocrplapp.controller;
 
-import com.stalowy.ocrplapp.Model.FileResult;
-import com.stalowy.ocrplapp.Model.UrlResult;
-import com.stalowy.ocrplapp.Service.OcrFileService;
-import com.stalowy.ocrplapp.Service.OcrUrlService;
+import com.stalowy.ocrplapp.model.FileResult;
+import com.stalowy.ocrplapp.model.UrlResult;
+import com.stalowy.ocrplapp.service.OcrFileService;
+import com.stalowy.ocrplapp.service.OcrUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +18,17 @@ import javax.validation.Valid;
 @Controller
 public class OcrController {
 
-    @Autowired
+
     OcrUrlService ocrUrlService;
-
-    @Autowired
     OcrFileService ocrFileService;
-
     UrlResult urlResult;
     FileResult fileResult;
+
+    @Autowired
+    public OcrController(OcrUrlService ocrUrlService, OcrFileService ocrFileService) {
+        this.ocrUrlService = ocrUrlService;
+        this.ocrFileService = ocrFileService;
+    }
 
     @RequestMapping("/")
     public String homeSite(Model model) {
@@ -45,7 +48,7 @@ public class OcrController {
                     }
             );
             model.addAttribute("fileResult", fileResult);
-            return "index";
+            return "redirect:/index";
         }
         if (urlResult.getUrl() != null) {
             String result = ocrUrlService.ocrFromLink(urlResult.getUrl());
@@ -56,7 +59,7 @@ public class OcrController {
     }
 
     @PostMapping("/fileOCR")
-    public String handleFileUpload(@ModelAttribute("FileResult")FileResult fileResult, Model model) {
+    public String fileOCR(@ModelAttribute FileResult fileResult, Model model) {
         MultipartFile multipartFile = fileResult.getMultipartFile();
         String result = ocrFileService.ocrFromFile(multipartFile);
         fileResult.setResult(result);
