@@ -12,13 +12,8 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class OcrUrlServiceTest {
 
-
-    OcrUrlService ocrUrlService;
-
     @Autowired
-    public OcrUrlServiceTest(OcrUrlService ocrUrlService) {
-        this.ocrUrlService = ocrUrlService;
-    }
+    OcrUrlService ocrUrlService;
 
     @Test
     public void test(){

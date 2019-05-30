@@ -25,12 +25,4 @@ public class UrlResult {
     public void setResult(String result) {
         this.result = result;
     }
-
-    @Override
-    public String toString() {
-        return "UrlResult{" +
-                "url='" + url + '\'' +
-                ", result='" + result + '\'' +
-                '}';
-    }
 }

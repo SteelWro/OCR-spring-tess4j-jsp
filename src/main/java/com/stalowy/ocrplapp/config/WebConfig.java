@@ -14,7 +14,8 @@ import java.io.File;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
-    String windowsPath = new File("").getAbsolutePath();
+    private final String WINDOWS_PATH = new File("").getAbsolutePath();
+    private final String POL = "pol";
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -31,8 +32,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public ITesseract iTesseract(){
         ITesseract instance = new Tesseract();
-        instance.setDatapath(windowsPath + "/tessdata");
-        instance.setLanguage("pol");
+        instance.setDatapath(WINDOWS_PATH + "/tessdata");
+        instance.setLanguage(POL);
         return instance;
     }
 

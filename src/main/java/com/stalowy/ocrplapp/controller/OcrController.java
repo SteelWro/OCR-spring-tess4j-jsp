@@ -18,7 +18,6 @@ import javax.validation.Valid;
 @Controller
 public class OcrController {
 
-
     OcrUrlService ocrUrlService;
     OcrFileService ocrFileService;
     UrlResult urlResult;
@@ -42,19 +41,12 @@ public class OcrController {
     @PostMapping("/urlOCR")
     public String urlOcr(@Valid UrlResult urlResult, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            System.out.println("There were errors");
-            bindingResult.getAllErrors().forEach(error -> {
-                        System.out.println(error.getObjectName() + " " + error.getDefaultMessage());
-                    }
-            );
             model.addAttribute("fileResult", fileResult);
-            return "redirect:/index";
+            return "index";
         }
-        if (urlResult.getUrl() != null) {
-            String result = ocrUrlService.ocrFromLink(urlResult.getUrl());
-            urlResult.setResult(result);
-            model.addAttribute("urlResult", urlResult);
-        } else System.out.println("brak url");
+        String result = ocrUrlService.ocrFromLink(urlResult.getUrl());
+        urlResult.setResult(result);
+        model.addAttribute("urlResult", urlResult);
         return "urlResult";
     }
 

@@ -25,12 +25,9 @@ public class OcrFileServiceTest {
     BufferedImage img;
     ByteArrayOutputStream baos;
     MultipartFile multipartFile;
-    OcrFileService ocrFileService;
 
     @Autowired
-    public OcrFileServiceTest(OcrFileService ocrFileService) {
-        this.ocrFileService = ocrFileService;
-    }
+    OcrFileService ocrFileService;
 
     @Before
     public void setUp(){
