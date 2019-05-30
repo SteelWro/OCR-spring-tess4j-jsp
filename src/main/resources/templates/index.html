@@ -39,11 +39,11 @@
     <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
         <div class="input-group">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" lang="pl-PL">
+                <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" lang="pl-PL"><div id="message"></div>
                 <label class="custom-file-label" for="inputGroupFile04" data-browse="Przeglądaj" >Wybierz plik...</label>
             </div>
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary loader-btn" type="submit" >Prześlij</button>
+                <button class="btn btn-outline-secondary loader-btn" type="submit" onclick="myFunction()" >Prześlij</button>
             </div>
 
 
@@ -82,11 +82,19 @@
             }
         });
     })
-    // function validatorFile() {
-    //     if( document.getElementById("inputGroupFile04").files.length == 0 ){
-    //         alert("no files selected");
-    //     }
-    // }
+
+    function myfunction()
+    {
+        if (jQuery('#videoUploadFile').val() == '') {
+            $('#message').html("Please Attach File");
+        } else {
+            alert('not work');
+        }
+    }
+
+
+
+
 
 
 </script>
