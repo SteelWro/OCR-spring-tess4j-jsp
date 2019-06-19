@@ -1,18 +1,18 @@
 package com.stalowy.ocrplapp.service.impl;
 
+import com.stalowy.ocrplapp.service.MultipartToFileService;
 import com.stalowy.ocrplapp.service.OcrFileService;
-import com.stalowy.ocrplapp.service.impl.MultipartToFileServiceImpl;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.TesseractException;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-
 @Service
 public class OcrFileServiceImpl implements OcrFileService {
 
+    static Logger logger = Logger.getLogger(MultipartToFileService.class.getName());
     ITesseract iTesseract;
     MultipartToFileServiceImpl multipartToFile;
 
@@ -28,9 +28,7 @@ public class OcrFileServiceImpl implements OcrFileService {
         try {
             result = iTesseract.doOCR(multipartToFile.multipartToFile(file));
         } catch (TesseractException e) {
-            System.err.println(e.getMessage());
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
+            logger.fatal("Unable to use doOCR method", e);
         }
         return result;
     }
