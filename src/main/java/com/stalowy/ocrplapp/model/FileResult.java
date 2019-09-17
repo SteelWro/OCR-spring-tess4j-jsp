@@ -1,9 +1,11 @@
 package com.stalowy.ocrplapp.model;
 
+import com.stalowy.ocrplapp.validator.FileFormatConstraint;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileResult {
 
+    @FileFormatConstraint
     private MultipartFile multipartFile;
 
     private String result;

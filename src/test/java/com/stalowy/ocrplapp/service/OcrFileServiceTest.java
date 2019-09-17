@@ -37,7 +37,7 @@ public class OcrFileServiceTest {
 //            img = ImageIO.read(url);
 //            baos = new ByteArrayOutputStream();
 //            ImageIO.write( img, "jpg", baos );
-//            multipartFile = new MultipartImage(baos.toByteArray(),"/src/main/resources/test_files/testing_image.jpg", "original.jpg",  MediaType.MULTIPART_FORM_DATA.toString(), baos.size());
+//            multipartFile = new MultipartImage(baos.toByteArray(),"/src/main/resources/test_files/testing_image.jpg", "test.jpg",  MediaType.MULTIPART_FORM_DATA.toString(), baos.size());
 //        } catch (MalformedURLException e) {
 //            e.printStackTrace();
 //        } catch (IOException e) {

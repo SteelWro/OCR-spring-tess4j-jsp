@@ -41,7 +41,7 @@ public class OcrController {
     @PostMapping("/urlOCR")
     public String urlOcr(@Valid UrlResult urlResult, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("fileResult", fileResult);
+            model.addAttribute("urlResult", urlResult);
             return "index";
         }
         String result = ocrUrlService.ocrFromURL(urlResult.getUrl());
@@ -51,7 +51,11 @@ public class OcrController {
     }
 
     @PostMapping("/fileOCR")
-    public String fileOCR(@ModelAttribute("FileResult") FileResult fileResult, Model model) {
+    public String fileOCR(@Valid FileResult fileResult, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("fileResult", fileResult);
+            return "index";
+        }
         MultipartFile multipartFile = fileResult.getMultipartFile();
         String result = ocrFileService.ocrFromFile(multipartFile);
         fileResult.setResult(result);

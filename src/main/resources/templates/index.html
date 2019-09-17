@@ -30,7 +30,9 @@
                 <button class="btn btn-secondary loader-btn" type="submit"0>Załaduj link</button>
             </div>
         </div>
-        <p class="alert alert-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"/>
+        <p class="alert alert-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></p>
+       <!-- < class="alert alert-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"/>-->
+
 
     </form>
     <div>
@@ -42,12 +44,12 @@
                 <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" lang="pl-PL"><div id="message"></div>
                 <label class="custom-file-label" for="inputGroupFile04" data-browse="Przeglądaj" >Wybierz plik...</label>
             </div>
+            <p class="alert alert-danger" th:if="${#fields.hasErrors('multipartFile')}" th:errors="*{multipartFile}"></p>
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary loader-btn" type="submit" onclick="myFunction()" >Prześlij</button>
             </div>
-
-
         </div>
+
     </form>
 </div>
 <footer class="footer">

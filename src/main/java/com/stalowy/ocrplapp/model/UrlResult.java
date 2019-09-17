@@ -1,15 +1,12 @@
 package com.stalowy.ocrplapp.model;
 
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import com.stalowy.ocrplapp.validator.UrlFormatConstraint;
+
 
 public class UrlResult {
 
-    private final String ERROR = "Link jest niepoprawny";
-
-    @NotNull
-    @Size(min=5, max=400, message = ERROR) //
+    @UrlFormatConstraint
     private String url;
 
     private String result;
