@@ -8,7 +8,6 @@ public class UrlResult {
 
     @UrlFormatConstraint
     private String url;
-
     private String result;
 
     public String getUrl() {

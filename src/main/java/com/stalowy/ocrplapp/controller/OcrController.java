@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -29,20 +31,23 @@ public class OcrController {
         this.ocrFileService = ocrFileService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String homeSite(Model model) {
-        urlResult = new UrlResult();
-        fileResult = new FileResult();
-        model.addAttribute("urlResult", urlResult);
-        model.addAttribute("fileResult", fileResult);
+        if (!model.containsAttribute("fileResult")) {
+            model.addAttribute("fileResult", new FileResult());
+        }
+        if(!model.containsAttribute("urlResult")){
+            model.addAttribute("urlResult", new UrlResult());
+        }
         return "index";
     }
 
     @PostMapping("/urlOCR")
-    public String urlOcr(@Valid UrlResult urlResult, BindingResult bindingResult, Model model) {
+    public String urlOcr(@Valid @ModelAttribute("urlResult") UrlResult urlResult, final BindingResult bindingResult, Model model, RedirectAttributes attr, HttpSession session) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("urlResult", urlResult);
-            return "index";
+            attr.addFlashAttribute("org.springframework.validation.BindingResult.urlResult", bindingResult);
+            attr.addFlashAttribute("urlResult", urlResult);
+            return "redirect:/index";
         }
         String result = ocrUrlService.ocrFromURL(urlResult.getUrl());
         urlResult.setResult(result);
@@ -51,10 +56,11 @@ public class OcrController {
     }
 
     @PostMapping("/fileOCR")
-    public String fileOCR(@Valid FileResult fileResult, BindingResult bindingResult, Model model) {
+    public String fileOCR(@Valid @ModelAttribute("fileResult") FileResult fileResult, final BindingResult bindingResult, Model model, RedirectAttributes attr, HttpSession session) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("fileResult", fileResult);
-            return "index";
+            attr.addFlashAttribute("org.springframework.validation.BindingResult.fileResult", bindingResult);
+            attr.addFlashAttribute("fileResult", fileResult);
+            return "redirect:/index";
         }
         MultipartFile multipartFile = fileResult.getMultipartFile();
         String result = ocrFileService.ocrFromFile(multipartFile);

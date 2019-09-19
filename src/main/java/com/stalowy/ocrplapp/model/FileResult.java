@@ -7,7 +7,6 @@ public class FileResult {
 
     @FileFormatConstraint
     private MultipartFile multipartFile;
-
     private String result;
 
     public MultipartFile getMultipartFile() {
