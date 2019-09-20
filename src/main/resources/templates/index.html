@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="jumbotron text-center shadow p-3 mb-5 bg-white rounded">
-    <h1><a href="/" class="title">OCR rozpoznawanie tekstu na obrazie</a></h1>
+    <h1><a href="/index" class="title">OCR rozpoznawanie tekstu na obrazie</a></h1>
     <p>Konwertuj pliki PDF, JPG, JPEG ,TIFF, PNG, BMP lub pliku z linku URL</p>
 </div>
 <div class="container">
@@ -27,29 +27,29 @@
         <div class="input-group mb-3">
             <input type="text" th:field="*{url}" class="form-control" placeholder="Podaj link...">
             <div class="input-group-append">
-                <button class="btn btn-secondary loader-btn" type="submit"0>Załaduj link</button>
+                <button class="btn btn-secondary loader-btn" type="submit">Załaduj link</button>
             </div>
         </div>
         <p class="alert alert-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></p>
-       <!-- < class="alert alert-danger" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"/>-->
-
-
     </form>
+
+
     <div>
         <p class="d-flex justify-content-center">lub</p>
     </div>
+
+
     <form name="#" enctype="multipart/form-data" th:object="${fileResult}" th:action="@{/fileOCR}" method="post">
         <div class="input-group">
             <div class="custom-file">
                 <input type="file" class="custom-file-input" th:field="*{multipartFile}" id="inputGroupFile04" lang="pl-PL"><div id="message"></div>
                 <label class="custom-file-label" for="inputGroupFile04" data-browse="Przeglądaj" >Wybierz plik...</label>
             </div>
-            <p class="alert alert-danger" th:if="${#fields.hasErrors('multipartFile')}" th:errors="*{multipartFile}"></p>
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary loader-btn" type="submit" onclick="myFunction()" >Prześlij</button>
+                <button class="btn btn-outline-secondary loader-btn" type="submit">Prześlij</button>
             </div>
         </div>
-
+        <p class="alert alert-danger" th:if="${#fields.hasErrors('multipartFile')}" th:errors="*{multipartFile}"></p>
     </form>
 </div>
 <footer class="footer">
@@ -85,14 +85,14 @@
         });
     })
 
-    function myfunction()
-    {
-        if (jQuery('#videoUploadFile').val() == '') {
-            $('#message').html("Please Attach File");
-        } else {
-            alert('not work');
-        }
-    }
+    // function myfunction()
+    // {
+    //     if (jQuery('#videoUploadFile').val() == '') {
+    //         $('#message').html("Please Attach File");
+    //     } else {
+    //         alert('not work');
+    //     }
+    // }
 
 
 

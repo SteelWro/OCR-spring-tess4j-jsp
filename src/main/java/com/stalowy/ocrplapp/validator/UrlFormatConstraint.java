@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UrlFormatConstraint {
-    String message() default "invalid url link";
+    String message() default "link jest nie prawidłowy lub nie istnieje";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
