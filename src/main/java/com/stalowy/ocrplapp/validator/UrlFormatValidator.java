@@ -9,17 +9,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UrlFormatValidator implements ConstraintValidator<UrlFormatConstraint, String> {
-    private final String REGEX = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
     @Override
-    public void initialize(UrlFormatConstraint constraintAnnotation) {
-
-    }
+    public void initialize(UrlFormatConstraint constraintAnnotation) { }
 
     @Override
     public boolean isValid(String url, ConstraintValidatorContext constraintValidatorContext) {
 
-        HttpURLConnection huc = null;
+        HttpURLConnection huc;
         int responseCode;
         try {
             huc = (HttpURLConnection) new URL(url).openConnection();
@@ -29,6 +26,7 @@ public class UrlFormatValidator implements ConstraintValidator<UrlFormatConstrai
             return false;
         }
 
+        String REGEX = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
         return (IsMatch(url, REGEX) && responseCode != HttpURLConnection.HTTP_NOT_FOUND);
     }
 

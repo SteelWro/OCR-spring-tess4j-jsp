@@ -16,14 +16,17 @@ import java.net.URL;
 @Service
 public class OcrUrlServiceImpl implements OcrUrlService {
 
-    static Logger logger = Logger.getLogger(MultipartToFileService.class.getName());
+    private static Logger logger = Logger.getLogger(MultipartToFileService.class.getName());
+    private ITesseract iTesseract;
 
     @Autowired
-    ITesseract iTesseract;
+    public OcrUrlServiceImpl(ITesseract iTesseract) {
+        this.iTesseract = iTesseract;
+    }
 
     @Override
     public String ocrFromURL(String imageUrl) {
-        URL url = null;
+        URL url;
         BufferedImage img = null;
         String result = null;
 
@@ -37,8 +40,9 @@ public class OcrUrlServiceImpl implements OcrUrlService {
         try {
             result = iTesseract.doOCR(img);
         } catch (TesseractException e) {
-            logger.fatal("Unable to use doOCR method", e);
+            logger.fatal("Unable to use url OCR method", e);
         }
+
         return result;
     }
 

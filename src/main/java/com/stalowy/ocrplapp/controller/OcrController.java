@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,10 +17,10 @@ import javax.validation.Valid;
 @Controller
 public class OcrController {
 
-    OcrUrlServiceImpl ocrUrlService;
-    OcrFileServiceImpl ocrFileService;
-    UrlResult urlResult;
-    FileResult fileResult;
+    private OcrUrlServiceImpl ocrUrlService;
+    private OcrFileServiceImpl ocrFileService;
+    private UrlResult urlResult;
+    private FileResult fileResult;
 
     @Autowired
     public OcrController(OcrUrlServiceImpl ocrUrlService, OcrFileServiceImpl ocrFileService) {

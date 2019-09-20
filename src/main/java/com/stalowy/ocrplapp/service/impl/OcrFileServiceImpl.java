@@ -12,9 +12,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class OcrFileServiceImpl implements OcrFileService {
 
-    static Logger logger = Logger.getLogger(MultipartToFileService.class.getName());
-    ITesseract iTesseract;
-    MultipartToFileServiceImpl multipartToFile;
+    private static Logger logger = Logger.getLogger(MultipartToFileService.class.getName());
+    private ITesseract iTesseract;
+    private MultipartToFileServiceImpl multipartToFile;
 
     @Autowired
     public OcrFileServiceImpl(ITesseract iTesseract, MultipartToFileServiceImpl multipartToFile) {
