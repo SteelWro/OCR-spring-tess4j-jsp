@@ -47,8 +47,8 @@ public class Tess4jApiImpl implements Tess4jApi {
             url = new URL(imageUrl);
             img = ImageIO.read(url);
         } catch (IOException e) {
-        logger.fatal("Unable to read image from URL", e);
-    }
+            logger.fatal("Unable to read image from URL", e);
+        }
 
         try {
             result = iTesseract.doOCR(img);

@@ -30,7 +30,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public ITesseract iTesseract(){
+    public ITesseract iTesseract() {
         ITesseract instance = new Tesseract();
         instance.setDatapath(WINDOWS_PATH + "/tessdata");
         instance.setLanguage(POL);

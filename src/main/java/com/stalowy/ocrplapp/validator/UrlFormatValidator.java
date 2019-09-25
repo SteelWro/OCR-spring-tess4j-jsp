@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
 public class UrlFormatValidator implements ConstraintValidator<UrlFormatConstraint, String> {
 
     @Override
-    public void initialize(UrlFormatConstraint constraintAnnotation) { }
+    public void initialize(UrlFormatConstraint constraintAnnotation) {
+    }
 
     @Override
     public boolean isValid(String url, ConstraintValidatorContext constraintValidatorContext) {

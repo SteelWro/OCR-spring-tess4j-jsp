@@ -17,11 +17,11 @@ public class OcrUrlServiceTest {
     OcrUrlServiceImpl ocrUrlService;
 
     @Test
-    public void test(){
+    public void test() {
         String quotation = ocrUrlService.ocrFromURL("https://image.slidesharecdn.com/24-motywujce-cytaty-dla-kadego-29884/95/24-motywujce-cytaty-dla-kadego-13-728.jpg?cb=1180699047");
 
         String expected = "Najlepszy czas na działanie jest teraz!\nMark Fisher\n";
 
-        assertEquals(quotation,expected);
+        assertEquals(quotation, expected);
     }
 }

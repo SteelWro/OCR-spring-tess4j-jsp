@@ -15,17 +15,18 @@
 </head>
 <body>
 <div class="jumbotron text-center shadow p-3 mb-5 bg-white rounded">
-    <h1><a href="/index" class="title">OCR rozpoznawanie tekstu na obrazie</a></h1>
+    <h1><a href="/" class="title">OCR rozpoznawanie tekstu na obrazie</a></h1>
     <p>Konwertuj pliki PDF, JPG, JPEG ,TIFF, PNG, BMP lub z linku URL</p>
 </div>
 <div class="container">
     <div class="panel panel-success shadow p-3 mb-5 bg-white rounded position-relative" style="padding-right: 50px">
         <button type="button" onclick="copyToClipboard('.panelCopy')" id="buttonCopy" class="btn btn-dark buttonCopy"
-                style="float: right; margin-bottom: 10px;" data-toggle="popover" data-placement="top" data-content="Skopiowane!">Kopiuj
+                style="float: right; margin-bottom: 10px;" data-toggle="popover" data-placement="top"
+                data-content="Skopiowane!">Kopiuj
         </button>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Wynik</label>
-            <textarea class="form-control rounded-0 panelCopy" id="exampleFormControlTextarea1" rows="10"
+            <textarea class="form-control rounded-0 panelCopy" id="exampleFormControlTextarea1" rows="20"
                       th:text="${urlResult.getResult()}">
                     </textarea>
         </div>
@@ -55,7 +56,7 @@
         $temp.remove();
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('[data-toggle="popover"]').popover();
     });
 </script>

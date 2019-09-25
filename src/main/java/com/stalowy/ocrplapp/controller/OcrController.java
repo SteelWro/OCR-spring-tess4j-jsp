@@ -31,12 +31,12 @@ public class OcrController {
         this.ocrFileService = ocrFileService;
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String homeSite(Model model) {
         if (!model.containsAttribute("fileResult")) {
             model.addAttribute("fileResult", new FileResult());
         }
-        if(!model.containsAttribute("urlResult")){
+        if (!model.containsAttribute("urlResult")) {
             model.addAttribute("urlResult", new UrlResult());
         }
         return "index";
@@ -47,7 +47,7 @@ public class OcrController {
         if (bindingResult.hasErrors()) {
             attr.addFlashAttribute("org.springframework.validation.BindingResult.urlResult", bindingResult);
             attr.addFlashAttribute("urlResult", urlResult);
-            return "redirect:/index";
+            return "redirect:/";
         }
         String result = ocrUrlService.ocrFromURL(urlResult.getUrl());
         urlResult.setResult(result);
@@ -60,7 +60,7 @@ public class OcrController {
         if (bindingResult.hasErrors()) {
             attr.addFlashAttribute("org.springframework.validation.BindingResult.fileResult", bindingResult);
             attr.addFlashAttribute("fileResult", fileResult);
-            return "redirect:/index";
+            return "redirect:/";
         }
         MultipartFile multipartFile = fileResult.getMultipartFile();
         String result = ocrFileService.ocrFromFile(multipartFile);
