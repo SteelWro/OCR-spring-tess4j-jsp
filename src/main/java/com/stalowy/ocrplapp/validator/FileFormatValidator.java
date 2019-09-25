@@ -1,5 +1,6 @@
 package com.stalowy.ocrplapp.validator;
 
+
 import org.apache.log4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
 
