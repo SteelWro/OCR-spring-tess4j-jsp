@@ -9,6 +9,7 @@ public class OcrSpringApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OcrSpringApplication.class, args);
+        BasicConfigurator.configure();
   }
 
 

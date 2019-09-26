@@ -61,7 +61,6 @@ public class Tess4jApiImpl implements Tess4jApi {
     private File multipartToFile(MultipartFile multipart) {
         File convFile = new File(multipart.getOriginalFilename());
         try {
-            //convFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(convFile);
             fos.write(multipart.getBytes());
             fos.close();

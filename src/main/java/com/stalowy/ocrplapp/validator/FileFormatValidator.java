@@ -13,7 +13,7 @@ public class FileFormatValidator implements ConstraintValidator<FileFormatConstr
     public static final String JPEG_MIME_TYPE = "image/jpeg";
     public static final String PDF_MIME_TYPE = "application/pdf";
     public static final String TTF_MIME_TYPE = "font/ttf";
-    private static final long TWENTY_MB_IN_BYTES = 20971520;
+    private static final Long TWENTY_MB_IN_BYTES = 20971520L;
 
     @Override
     public void initialize(FileFormatConstraint constraintAnnotation) {

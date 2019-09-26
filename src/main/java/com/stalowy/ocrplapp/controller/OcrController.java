@@ -22,8 +22,6 @@ public class OcrController {
 
     private OcrUrlServiceImpl ocrUrlService;
     private OcrFileServiceImpl ocrFileService;
-    //private UrlResult urlResult;
-    //private FileResult fileResult;
 
     @Autowired
     public OcrController(OcrUrlServiceImpl ocrUrlService, OcrFileServiceImpl ocrFileService) {
