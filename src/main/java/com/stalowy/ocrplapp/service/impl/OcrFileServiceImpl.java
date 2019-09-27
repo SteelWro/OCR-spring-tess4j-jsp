@@ -21,7 +21,7 @@ public class OcrFileServiceImpl implements OcrFileService {
 
     @Override
     public String ocrFromFile(MultipartFile multipartFile) {
-        return aspriseOcrApi.getOCRfromFile(multipartFile);
+        return tess4jApi.getOCRfromFile(multipartFile);
     }
 
 }

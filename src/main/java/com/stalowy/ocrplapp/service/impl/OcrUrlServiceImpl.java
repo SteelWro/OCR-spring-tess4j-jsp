@@ -20,7 +20,7 @@ public class OcrUrlServiceImpl implements OcrUrlService {
 
     @Override
     public String ocrFromURL(String imageUrl) {
-        return aspriseOcrApi.getOCRfromUrl(imageUrl);
+        return tess4jApi.getOCRfromUrl(imageUrl);
     }
 
 }

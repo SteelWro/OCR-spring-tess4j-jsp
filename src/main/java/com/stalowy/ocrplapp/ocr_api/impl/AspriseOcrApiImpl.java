@@ -22,7 +22,7 @@ public class AspriseOcrApiImpl implements AspriseOcrApi {
     public String getOCRfromFile(MultipartFile multipartFile) {
         Ocr.setUp(); // one time setup
         Ocr ocr = new Ocr(); // create a new OCR engine
-        ocr.startEngine("eng", Ocr.SPEED_FASTEST); // English
+        ocr.startEngine("pol", Ocr.SPEED_FAST);
         String result = ocr.recognize(new File[] {multipartToFile(multipartFile)},
                 Ocr.RECOGNIZE_TYPE_ALL, Ocr.OUTPUT_FORMAT_PLAINTEXT); // PLAINTEXT | XML | PDF | RTF
         ocr.stopEngine();

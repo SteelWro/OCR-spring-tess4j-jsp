@@ -9,13 +9,13 @@ import java.io.File;
 
 @Configuration
 public class TesseractConfig {
-    private final String WINDOWS_PATH = new File("").getAbsolutePath();
+    private final String TESSDATA_PATH = "src/main/resources/tessdata";
     private final String POL = "pol";
 
     @Bean
     public ITesseract iTesseract() {
         ITesseract instance = new Tesseract();
-        instance.setDatapath(WINDOWS_PATH + "/tessdata");
+        instance.setDatapath(TESSDATA_PATH);
         instance.setLanguage(POL);
         return instance;
     }
