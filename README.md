@@ -10,9 +10,10 @@ Aplikacja dostępna publicznie po adresem:
 http://77.55.218.33:8080
 
 funkcjonalności:
-- aplikacja posiada walidację pól:
+- pola dla użytkownika posiadają walidację:
     * dla adresu (zły format http lub gdy strona zwraca kod błędu)
     * dla pliku (plik ma zły format, nie ma go lub przekracza 20 MB)
+- aplikacja zwraca odpowiednio dla pliku lub linku do pliku łańcuch znakó jaki uda mu się odczytać
 
  Wykorzystane technologie:
 - Java
