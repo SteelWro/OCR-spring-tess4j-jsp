@@ -25,6 +25,6 @@ funkcjonalności:
 
 Do zrobienia:
 - przy niektóych dużych i mało czytelnych plikach .pdf występują błędy. Prawdopodobnie pliki wysyłane na serwer są źle formatowane na plik
-
+- stopka na stronie się krzaczy po wypchnięciu apki na serwer
 
 
