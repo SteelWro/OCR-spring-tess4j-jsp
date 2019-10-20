@@ -9,7 +9,7 @@ import java.io.File;
 
 @Configuration
 public class TesseractConfig {
-    private final String TESSDATA_PATH = "src/main/resources/tessdata";
+    private final String TESSDATA_PATH = "/usr/share/tesseract-ocr/tessdata/";
     private final String POL = "pol";
 
     @Bean
