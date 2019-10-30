@@ -7,7 +7,7 @@
 >
 
 Aplikacja dostępna publicznie po adresem:
-http://77.55.218.33:8080
+http://77.55.218.33:8087
 
 funkcjonalności:
 - pola dla użytkownika posiadają walidację:
